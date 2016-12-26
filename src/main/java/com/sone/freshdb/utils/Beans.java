@@ -4,6 +4,7 @@ import org.springframework.beans.BeanUtils;
 
 public class Beans {
 	public static void copyProperties(Object src, Object tgt){
-		BeanUtils.copyProperties(src, tgt);
+		if (src!=null && tgt!=null)
+			BeanUtils.copyProperties(src, tgt);
 	}
 }
