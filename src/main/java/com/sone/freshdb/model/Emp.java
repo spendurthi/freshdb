@@ -2,6 +2,7 @@ package com.sone.freshdb.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,16 +13,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="EMP")
 public class Emp {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="SID", nullable = false)
-	private int sid;
+	@Column(name="EMP_SID", nullable = false)
+	private Integer sid;
 	
 	@Column(name="ID",nullable=false)
-	private int id;
+	private Integer id;
 	
 	@Column(name="NAME",nullable=false)
 	private String name;
@@ -30,7 +33,7 @@ public class Emp {
 	private String job;
 	
 	@Column(name="MGR")
-	private int mgr;
+	private Integer mgr;
 	
 	@Column(name="HIREDATE")
 	private Date hireDate;
@@ -41,23 +44,23 @@ public class Emp {
 	@Column(name="COMM")
 	private float comm;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "DEPT_ID", nullable = false)
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "DEPT_SID")
 	private Dept dept; 
 
-	public int getSid() {
+	public Integer getSid() {
 		return sid;
 	}
 
-	public void setSid(int sid) {
+	public void setSid(Integer sid) {
 		this.sid = sid;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -77,11 +80,11 @@ public class Emp {
 		this.job = job;
 	}
 
-	public int getMgr() {
+	public Integer getMgr() {
 		return mgr;
 	}
 
-	public void setMgr(int mgr) {
+	public void setMgr(Integer mgr) {
 		this.mgr = mgr;
 	}
 

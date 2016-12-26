@@ -3,17 +3,17 @@ package com.sone.freshdb.dto;
 
 public class UserDTO {
 
-	private int sid;	
+	private Integer sid;	
 	private String userName;	
 	private String firstName;
 	private String lastName;	
 	private String password;
 
-	public int getSid() {
+	public Integer getSid() {
 		return sid;
 	}
 
-	public void setSid(int sid) {
+	public void setSid(Integer sid) {
 		this.sid = sid;
 	}
 

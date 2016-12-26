@@ -3,28 +3,29 @@ package com.sone.freshdb.dto;
 import java.util.Date;
 
 public class EmpDTO {
-	private int sid;	
-	private int id;	
+	private Integer sid;	
+	private Integer id;	
 	private String name;	
 	private String job;	
-	private int mgr;	
+	private Integer mgr;	
 	private Date hireDate;	
 	private float sal;	
 	private float comm;
+	private DeptDTO dept;
 
-	public int getSid() {
+	public Integer getSid() {
 		return sid;
 	}
 
-	public void setSid(int sid) {
+	public void setSid(Integer sid) {
 		this.sid = sid;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -44,11 +45,11 @@ public class EmpDTO {
 		this.job = job;
 	}
 
-	public int getMgr() {
+	public Integer getMgr() {
 		return mgr;
 	}
 
-	public void setMgr(int mgr) {
+	public void setMgr(Integer mgr) {
 		this.mgr = mgr;
 	}
 
@@ -96,5 +97,11 @@ public class EmpDTO {
 		if (id != other.id)
 			return false;
 		return true;
+	}
+	public void setDept(DeptDTO deptDto) {
+		this.dept = deptDto;
+	}
+	public DeptDTO getDept() {
+		return dept;
 	}
 }

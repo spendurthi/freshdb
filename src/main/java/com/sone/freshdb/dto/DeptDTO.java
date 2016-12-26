@@ -1,24 +1,27 @@
 package com.sone.freshdb.dto;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class DeptDTO {
-	private int sid;	
-	private int deptId;	
+	private Integer sid;	
+	private Integer deptId;	
 	private String deptName;	
 	private String deptLoc;
-	public int getSid() {
+	private List<EmpDTO> employees = new ArrayList<EmpDTO>(0);
+	public Integer getSid() {
 		return sid;
 	}
 
-	public void setSid(int sid) {
+	public void setSid(Integer sid) {
 		this.sid = sid;
 	}
 
-	public int getDeptId() {
+	public Integer getDeptId() {
 		return deptId;
 	}
 
-	public void setDeptId(int deptId) {
+	public void setDeptId(Integer deptId) {
 		this.deptId = deptId;
 	}
 
@@ -58,6 +61,11 @@ public class DeptDTO {
 			return false;
 		return true;
 	}
-	
+	public void setEmployees(List<EmpDTO> employees) {
+		this.employees = employees;
+	}
+	public List<EmpDTO> getEmployees() {
+		return employees;
+	}
 	
 }

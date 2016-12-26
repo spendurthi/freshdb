@@ -14,7 +14,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="SID", nullable = false)
-	private int sid;
+	private Integer sid;
 	
 	@Column(name="USER_NAME", nullable = false)
 	private String userName;
@@ -27,11 +27,11 @@ public class User {
 	@Column(name="PASSWORD", nullable = false)
 	private String password;
 
-	public int getSid() {
+	public Integer getSid() {
 		return sid;
 	}
 
-	public void setSid(int sid) {
+	public void setSid(Integer sid) {
 		this.sid = sid;
 	}
 

@@ -5,26 +5,26 @@ import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.sone.freshdb.service.UserService;
-import com.sone.freshdb.vo.UserVO;
+import com.sone.freshdb.dao.UserDAO;
+import com.sone.freshdb.dto.UserDTO;
 
 public class UserTest {
 	
 	public void test(){
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
-		UserService userService = (UserService) ctx.getBean("userService");
-		List<UserVO> list = userService.getAllUsers();
+		UserDAO userDao = (UserDAO) ctx.getBean("userService");
+		List<UserDTO> list = userDao.getAllUsers();
 		System.out.println("User count: " + list.size());
 
-		UserVO userVO = new UserVO();
-		userVO.setUserName("pendurthis");
-		userVO.setPassword("abcd123$");
-		userVO.setFirstName("Surya");
-		userVO.setLastName("Pendurthi");
-		userService.save(userVO);
+		UserDTO userDto = new UserDTO();
+		userDto.setUserName("pendurthis");
+		userDto.setPassword("abcd123$");
+		userDto.setFirstName("Surya");
+		userDto.setLastName("Pendurthi");
+		userDao.save(userDto);
 		System.out.println("User inserted!");
 
-		list = userService.getAllUsers();
+		list = userDao.getAllUsers();
 		System.out.println("User count: " + list.size());
 	}
 	
